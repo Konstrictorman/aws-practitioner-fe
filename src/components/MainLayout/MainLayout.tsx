@@ -4,6 +4,7 @@ import Link from "@mui/material/Link";
 import Container from "@mui/material/Container";
 import Header from "~/components/MainLayout/components/Header";
 import Box from "@mui/material/Box";
+import Banner from '../../assets/images/banner.jpg';
 
 function Copyright() {
   return (
@@ -24,6 +25,13 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <Header />
       <main>
         <Container sx={{ pb: 8 }} maxWidth="md">
+        <div style={{ textAlign: 'center' }}>
+						{' '}
+						<img
+							src={Banner}
+							alt='image'
+						/>
+					</div>
           {children}
         </Container>
       </main>
