@@ -30,7 +30,7 @@ cdk.out/
 *.njsproj
 *.sln
 *.sw?
-
+package-lock.json
 # ───── IDEs and Editors ─────
 .vscode/
 !.vscode/extensions.json

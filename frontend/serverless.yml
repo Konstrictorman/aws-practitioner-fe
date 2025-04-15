@@ -1,4 +1,4 @@
-service: my-store-app
+service: my-toy-store-app
 
 frameworkVersion: "3"
 

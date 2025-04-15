@@ -1,10 +1,19 @@
 {
-  "name": "your-project",
-  "private": true,
-  "workspaces": ["frontend", "infra"],
-  "scripts": {
-    "build": "npm run build --workspaces",
-    "deploy": "cd infra && cdk deploy"
-  }
+	"name": "toy-store",
+	"private": true,
+	"workspaces": [
+		"frontend",
+		"infra"
+	],
+	"scripts": {
+		"build:frontend": "npm run build --workspace frontend",
+		"synth": "cd infra && npx cdk synth > MyStack.template.json",
+		"bootstrap": "cd infra && cdk bootstrap",
+		"deploy": "npm run build:frontend && cd infra && cdk bootstrap && npx cdk deploy",
+		"destroy": "cd infra && npx cdk destroy",
+		"build": "npm run build:frontend"
+	},
+	"devDependencies": {
+		"dotenv-cli": "^8.0.0"
+	}
 }
-
