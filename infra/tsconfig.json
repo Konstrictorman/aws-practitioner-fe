@@ -22,8 +22,14 @@
     "strictPropertyInitialization": false,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "outDir": "dist"
   },
+  "include": ["bin", "lib"],
   "exclude": [
     "node_modules",
     "cdk.out"
