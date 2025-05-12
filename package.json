@@ -6,6 +6,7 @@
 		"infra"
 	],
 	"scripts": {
+		"start": "cd frontend && npm run start",
 		"build:frontend": "npm run build --workspace frontend",
 		"synth": "cd infra && npx cdk synth > MyStack.template.json",
 		"bootstrap": "cd infra && cdk bootstrap",
@@ -15,5 +16,10 @@
 	},
 	"devDependencies": {
 		"dotenv-cli": "^8.0.0"
+	},
+	"dependencies": {
+		"@hookform/resolvers": "^5.0.1",
+		"react-hook-form": "^7.56.2",
+		"yup": "^1.6.1"
 	}
 }
