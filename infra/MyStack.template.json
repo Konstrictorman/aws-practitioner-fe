@@ -49,9 +49,7 @@ Resources:
                 AWS:SourceArn:
                   Fn::Join:
                     - ""
-                    - - "arn:aws:cloudfront::"
-                      - Ref: AWS::AccountId
-                      - :distribution/
+                    - - arn:aws:cloudfront::448049832395:distribution/
                       - Ref: deploymentCloudfrontDistributionDDB77E0D
             Effect: Allow
             Principal:
@@ -111,13 +109,12 @@ Resources:
     Type: AWS::Lambda::LayerVersion
     Properties:
       Content:
-        S3Bucket:
-          Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
-        S3Key: 8c06a7775210aa362ae87c34bb7f3fab5bd1261dcdc431975963ee6b55bdef88.zip
+        S3Bucket: cdk-hnb659fds-assets-448049832395-us-east-1
+        S3Key: 96596285466980923c6dcb549abb80fa0e279f3446b71ca57dbc5b571a7e9b4f.zip
       Description: /opt/awscli/aws
     Metadata:
       aws:cdk:path: DeployWebAppStack/deployment/BucketDeployment/AwsCliLayer/Resource
-      aws:asset:path: asset.8c06a7775210aa362ae87c34bb7f3fab5bd1261dcdc431975963ee6b55bdef88.zip
+      aws:asset:path: asset.96596285466980923c6dcb549abb80fa0e279f3446b71ca57dbc5b571a7e9b4f.zip
       aws:asset:is-bundled: false
       aws:asset:property: Content
   deploymentBucketDeploymentCustomResourceHandlerinlinePolicyAddedToExecutionRole061A6B418:
@@ -144,9 +141,9 @@ Resources:
           - CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536
           - Arn
       SourceBucketNames:
-        - Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
+        - cdk-hnb659fds-assets-448049832395-us-east-1
       SourceObjectKeys:
-        - 76ae5bd577bed5bec2fb07c48769fc790c0a10fbb700f4a205adf9701a12a474.zip
+        - e7e272f9a96065db089d80bebdf037462969c721003635e05e9d613fbab43e89.zip
       DestinationBucketName:
         Ref: deploymentFrontendBucket67CEB713
       Prune: true
@@ -188,19 +185,8 @@ Resources:
               - s3:List*
             Effect: Allow
             Resource:
-              - Fn::Join:
-                  - ""
-                  - - "arn:"
-                    - Ref: AWS::Partition
-                    - ":s3:::"
-                    - Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
-                    - /*
-              - Fn::Join:
-                  - ""
-                  - - "arn:"
-                    - Ref: AWS::Partition
-                    - ":s3:::"
-                    - Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
+              - arn:aws:s3:::cdk-hnb659fds-assets-448049832395-us-east-1
+              - arn:aws:s3:::cdk-hnb659fds-assets-448049832395-us-east-1/*
           - Action:
               - s3:Abort*
               - s3:DeleteObject*
@@ -233,8 +219,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       Code:
-        S3Bucket:
-          Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
+        S3Bucket: cdk-hnb659fds-assets-448049832395-us-east-1
         S3Key: 4fe0aba5e672b596d0f72505a9eec502f98d46906bb30fae2511fbdc1df4956f.zip
       Environment:
         Variables:
@@ -262,7 +247,6 @@ Resources:
       Analytics: v2:deflate64:H4sIAAAAAAAA/9VVTYvbMBD9LfWxKO52F0rZW5LtF2zZkJRewhJkaZJoI2uMPrK4xv+9I8tOvJCl9NBDD8HxvNHTvCfN+Dp///FDfvWGP7uJkIeJVkXerDwXB0ahTeNu8mYWxAH8uskKjeKwCIVWYioEOJfdZm8zllko8cj1AgmoKSbBeYt11j6y+dak5Sw9Uk7k6l47gnFawvvkGXewfmyZ0Bjk1qLxeXOniFsVwSs0RCNhy4P2M9jzo0Kb3TYZWrVTpi/tqOAZ7MKiR4HnCi1IZUH4icfJ3vvKZS0buJaI/qF4IrTnAGvRLsFVaByQZto2riGXfDhbkOCvrwELvqOf3/eKSfPq5qGrNFk5J3UW9ZrQzo4LWAyP5bfM3WwaCZXGugQyJ7l2dwow7hx4l0/jo2Wal4XkeUM097wG+xOsIxq2UmanwaP5HIzofQ1ByV6BjrlRdldaBuao6Cgi/ykh8i6CrdBBH/OqBAxDBhU/ACXdFVuv1K8hANUeSrBcrzxaMmkEHStx/rcKhSExfWCrNLjaeSiHInD3xWKo+leBcmDZcyM12KGUYGJt6RhYk3Epv4PnknueJDJvAzxehqIDdHIjn/5ozv9kxKdx9WfBCbwfK00tO/jQMsXLvDn1tqMGgMjixuyrUXTdtInX06jZ/8Bl58v6tN2lcKzn71a8vu2FcKeoHz+RhXRQ+4QS5KyOY6WyyghVcU09ieF0viknLph2XvSKs5IbOkPZEap+aoxj9dSaYRakin7gYthimFMvbfpmtDJwwl5Kfw38F7ydVVFyOwyVTdcHG/pkCK3y6bOba9VdmLgT6+YPGU4DbcfmwXksaZxisAJO824IdLMv+Cp49iKnZYZucv7k3h2vr/Jr+mQ9OaUm/S3Ol+n5G3MHBzDPBgAA
     Metadata:
       aws:cdk:path: DeployWebAppStack/CDKMetadata/Default
-    Condition: CDKMetadataAvailable
 Outputs:
   deploymentCloudFrontURL05BF422F:
     Description: The distribution URL
@@ -278,105 +262,6 @@ Outputs:
       Ref: deploymentFrontendBucket67CEB713
     Export:
       Name: BucketName
-Conditions:
-  CDKMetadataAvailable:
-    Fn::Or:
-      - Fn::Or:
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - af-south-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-east-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-northeast-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-northeast-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-northeast-3
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-south-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-south-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-southeast-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-southeast-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-southeast-3
-      - Fn::Or:
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ap-southeast-4
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ca-central-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - ca-west-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - cn-north-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - cn-northwest-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-central-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-central-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-north-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-south-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-south-2
-      - Fn::Or:
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-west-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-west-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - eu-west-3
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - il-central-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - me-central-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - me-south-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - sa-east-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - us-east-1
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - us-east-2
-          - Fn::Equals:
-              - Ref: AWS::Region
-              - us-west-1
-      - Fn::Equals:
-          - Ref: AWS::Region
-          - us-west-2
 Parameters:
   BootstrapVersion:
     Type: AWS::SSM::Parameter::Value<String>
