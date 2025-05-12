@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "outDir": "dist/cucumber",
+    "isolatedModules": false
+  },
+  "include": [
+    "src/features/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules", "dist" 
+  ]
+}
