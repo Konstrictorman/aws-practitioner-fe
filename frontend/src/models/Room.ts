@@ -1,5 +1,3 @@
-import * as Yup from 'yup';
-
 export type RoomType = 'SINGLE' | 'DOUBLE';
 
 export interface Room {

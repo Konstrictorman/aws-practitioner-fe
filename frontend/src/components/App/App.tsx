@@ -18,11 +18,15 @@ function App() {
 					element={<PageProducts />}
 				/>
 				<Route
+					path='/products'
+					element={<PageProducts />}
+				/>
+				<Route
 					path='cart'
 					element={<PageCart />}
 				/>
 				<Route
-					path='/room/:id'
+					path='/products/:id'
 					element={<ProductDetails />}
 				/>
 				<Route path='admin/orders'>

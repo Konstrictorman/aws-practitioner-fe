@@ -1,18 +1,17 @@
 import IconButton from '@mui/material/IconButton';
-import { Room } from '~/models/Room';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useNavigate } from 'react-router-dom';
+import { Product } from '~/models/ProductSchema';
 
 type ViewDetailActionProps = {
-	room: Room;
-	image: string;
+	product: Product;
 };
 
-const ViewDetailAction = ({ room, image }: ViewDetailActionProps) => {
+const ViewDetailAction = ({ product }: ViewDetailActionProps) => {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
-		navigate(`/room/${room.id}?image=${image}`);
+		navigate(`/products/${product.id}?image=${product.imageUrl}`);
 	};
 
 	return (
