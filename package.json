@@ -15,6 +15,7 @@
 		"build": "npm run build:frontend"
 	},
 	"devDependencies": {
+		"aws-cdk": "^2.1016.0",
 		"dotenv-cli": "^8.0.0"
 	},
 	"dependencies": {

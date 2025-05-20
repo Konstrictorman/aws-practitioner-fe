@@ -13,9 +13,11 @@ import {
 	useDeleteAvailableProduct,
 	useInvalidateAvailableProducts,
 } from '~/queries/productsApi';
+import { Product } from '~/models/ProductSchema';
 
 export default function ProductsTable() {
-	const { data = [] } = useAvailableProducts();
+	const { data } = useAvailableProducts();
+	const products: Product[] = data?.data ?? [];
 	const { mutate: deleteAvailableProduct } = useDeleteAvailableProduct();
 	const invalidateAvailableProducts = useInvalidateAvailableProducts();
 
@@ -32,7 +34,7 @@ export default function ProductsTable() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{data.map((product) => (
+					{products.map((product) => (
 						<TableRow key={product.id}>
 							<TableCell
 								component='th'
@@ -43,7 +45,7 @@ export default function ProductsTable() {
 							<TableCell align='right'>
 								{formatAsPrice(product.price)}
 							</TableCell>
-							<TableCell align='right'>{product.count}</TableCell>
+							<TableCell align='right'>{product.qty}</TableCell>
 							<TableCell align='right'>
 								<Button
 									size='small'
